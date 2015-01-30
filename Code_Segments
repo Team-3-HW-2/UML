@@ -1,0 +1,58 @@
+' Not exactly sure what to do about UML code, so here's a file just for that. 
+' Feel free to make your own personalized segments. We just have to be able 
+' easily access everyone's code after the vote Friday (Jan 30th). 
+
+
+
+'' ----------------------------------------------- 
+'' Zachary Yama
+'' -----------------------------------------------
+@startuml
+'Zachary Yama
+
+:Player: as Player
+:NPC: as NPC
+:Enemy: as Enemy
+
+Player --> (Social Interaction Cases)
+NPC --> (Social Interaction Cases)
+
+Player --> (Combat Cases)
+Enemy --> (Combat Cases)
+
+Player ----> (User Interface Cases)
+
+(User Interface Cases) -> (In Game UI)
+(User Interface Cases) --> (Menu UI)
+
+(Menu UI) --> (Mode Selection)
+(Menu UI) --> (Save the Game)
+(Menu UI) --> (Enter the Game)
+(Menu UI) --> (Start Dungeon)
+(Menu UI) --> (Leave Dungeon)
+(Menu UI) --> (Close the Game)
+(In Game UI) ----> (Level Up)
+(In Game UI) ----> (Increase Stats)
+(In Game UI) ----> (Equip an Item)
+(In Game UI) ----> (Change Current Weapon)
+(In Game UI) ----> (Select an Item From Inventory)
+(In Game UI) ----> (Move an Item in the Inventory)
+(In Game UI) ----> (Open/Close Inventory)
+(In Game UI) ----> (Look at Stats)
+(In Game UI) ----> (Look at Map)
+
+(Social Interaction Cases) --> (Complete Task/Quest)
+(Social Interaction Cases) --> (Sell Items)
+(Social Interaction Cases) --> (Buy Items)
+(Social Interaction Cases) --> (Dialog)
+
+(Combat Cases) --> (Attack an Entity)
+(Combat Cases) --> (Kill an Enemy)
+(Combat Cases) --> (Take Damage)
+(Combat Cases) --> (Die)
+(Combat Cases) --> (Reload Weapon)
+(Combat Cases) --> (Use an Item)
+(Combat Cases) --> (Pick Up Item)
+
+@enduml
+'' ----------------------------------------------- 
