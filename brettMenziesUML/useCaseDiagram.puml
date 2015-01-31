@@ -17,15 +17,15 @@ rectangle Items {
   (Move an Item in Inventory) -> (Open and close Inventory)
   (Pick up Items) -> (Move an Item in Inventory)
   (Open and close Inventory)
-  (Use an Item) <- (Select an Item from Inventory)
-  (Equip an Item) <- (Select an Item from Inventory)
-  (Sell an Item) <- (Select an Item from Inventory)
+  (Use an Item) -> (Select an Item from Inventory)
+  (Equip an Item) -> (Select an Item from Inventory)
+  (Sell an Item) -> (Select an Item from Inventory)
   (Sell an Item) <-> Shopkeeper
   (Buy an Item) <-> Shopkeeper
 }
 rectangle Game {
-  (Start Dungeon) -> (Leave Dungeon)
-  (Leave Dungeon) -> (Close the Game)
+  (Start Dungeon) -> (Leave Dungeon) : Prereq
+  (Leave Dungeon) -> (Close the Game) : Prereq
   (Close the Game)
   (Save the game) <- (Close the Game)
 }
