@@ -1,0 +1,40 @@
+' 
+' Jared Zook
+'
+' Diagram for all use cases.
+'
+@startuml
+
+:Player: as Player
+:Adversary: as Adversary
+
+Player -> (Interact with System Interface)
+Player -> (Navigate through Level)
+Player --> (Utilize Items)
+
+Player --> (Engage in Battle)
+Adversary --> (Engage in Battle)
+
+(Interact with System Interface) --> (Load/Save Game)
+(Interact with System Interface) --> (View Map/Stats)
+(Interact with System Interface) --> (Increase Stats)
+(Interact with System Interface) --> (Level Up)
+(Interact with System Interface) --> (Close the Game)
+
+(Navigate through Level) -> (Enter/Exit Dungeon)
+(Navigate through Level) -> (Move from Tile-to-tile)
+
+(Utilize Items) ---> (Open/Close Inventory)
+(Utilize Items) ---> (Select/Move an Item from Inventory)
+(Utilize Items) ---> (Pick Item Up)
+(Utilize Items) ---> (Buy/Sell Items)
+(Utilize Items) ---> (Use/Equip an Item) 
+(Utilize Items) ---> (Reload Weapon) 
+(Utilize Items) ---> (Change Current Weapon)
+
+(Engage in Battle) ---> (Attack)
+(Engage in Battle) ---> (Use/Equip an Item)
+(Engage in Battle) ---> (Reload Weapon)
+(Engage in Battle) ---> (Change Current Weapon)
+(Engage in Battle) ---> (Move from Tile-to-tile)
+@enduml
