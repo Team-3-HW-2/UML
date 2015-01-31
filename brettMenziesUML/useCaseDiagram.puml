@@ -1,0 +1,44 @@
+@startuml
+left to right direction
+skinparam packageStyle rect
+actor Player
+actor Enemy_Combatant
+actor Friendly_Player
+actor Shopkeeper
+rectangle Combat {
+  (Kill an Enemy) <- (Attack)
+  (Kill an Enemy) -> Enemy_Combatant
+  (Attack) <-> Enemy_Combatant
+  (Reload Weapon) <- (Attack)
+  (Change Current Weapon) -> (Reload Weapon)
+}
+rectangle Items {
+  (Select an Item from Inventory) -> (Open and close Inventory)
+  (Move an Item in Inventory) -> (Open and close Inventory)
+  (Pick up Items) -> (Move an Item in Inventory)
+  (Open and close Inventory)
+  (Use an Item) <- (Select an Item from Inventory)
+  (Equip an Item) <- (Select an Item from Inventory)
+  (Sell an Item) <- (Select an Item from Inventory)
+  (Sell an Item) <-> Shopkeeper
+  (Buy an Item) <-> Shopkeeper
+}
+rectangle Game {
+  (Start Dungeon) -> (Leave Dungeon)
+  (Leave Dungeon) -> (Close the Game)
+  (Close the Game)
+  (Save the game) <- (Close the Game)
+}
+rectangle Basic {
+  (Level Up)
+  (Die)
+  (Move)
+  (Look at stats)
+  (Look at mag)
+  (Dialog) <-> Friendly_Player
+}
+Player -left-> Combat
+Player -right-> Game
+Player -left-> Items
+Player -down-> Basic
+@enduml
