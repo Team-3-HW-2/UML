@@ -120,3 +120,58 @@ rectangle GUI {
 
 @enduml
 '' ----------------------------------------------- 
+
+
+'' ----------------------------------------------- 
+'' Kurt Blasdell
+'' -----------------------------------------------
+
+@startuml
+
+:Player: as Player
+:Enemy: as Enemy
+:NPC: as NPC
+
+Player --> (NPC Cases)
+NPC --> (NPC Cases)
+
+Player --> (UI Cases)
+
+Player --> (Combat Cases)
+Enemy --> (Combat Cases)
+
+(UI Cases) --> (Main Menu)
+(UI Cases) --> (In Game)
+
+(Main Menu) --> (Mode Selection)
+(Main Menu) --> (Enter the Game)
+(Main Menu) --> (Start Dungeon)
+(Main Menu) --> (Close the Game)
+(In Game) --> (Look at Stats)
+(In Game) --> (Level Up)
+(In Game) --> (Increase Stats)
+(In Game) --> (Equip an Item)
+(In Game) --> (Change Current Weapon)
+(In Game) --> (Open/Close Inventory)
+(In Game) --> (Select and Item From Inventory)
+(In Game) --> (Move and Item in the Inventory)
+(In Game) --> (Use an Item)
+(In Game) --> (Look at Map)
+(In Game) --> (Save/Load Game)
+(In Game) --> (Leave Dungeon)
+
+(NPC Cases) --> (Dialog)
+(NPC Cases) --> (Sell Items)
+(NPC Cases) --> (Buy Items)
+(NPC Cases) --> (Complete Task/Quest)
+
+(Combat Cases) --> (Attack)
+(Combat Cases) --> (Kill an Enemy)
+(Combat Cases) --> (Reload Weapon)
+(Combat Cases) --> (Pick up Item)
+(Combat Cases) --> (Use an Item)
+(Combat Cases) --> (Take Damage)
+(Combat Cases) --> (Die)
+
+@enduml
+'' -----------------------------------------------
