@@ -245,3 +245,43 @@ Player-->(Start)
 
 @enduml
 '' ----------------------------------------------- 
+
+'' ----------------------------------------------- 
+'' Michael Mueller
+'' -----------------------------------------------
+@startuml
+:Player: -left-> (mode selection)
+:NPC:
+:Enemy:
+(mode selection) -right-> (save game)
+(mode selection) -left-> (Load game)
+(mode selection) -up-> (Enter game)
+(mode selection) -> (Close game)
+Player -> (combat)
+(combat) -down-> (death)
+(death) -> (dialog)
+(death) -> (mode selection)
+NPC -> (dialog)
+Enemy -> combat
+(combat) -> (take damage)
+(combat) -> (kill enemy)
+(kill enemy) -> (level up)
+(level up) -> (increase stats)
+(dialog) -> (player)
+(dialog) -> (buy items)
+(dialog) -> (sell items)
+(dialog) -> (complete task)
+(combat) -> (reload weapon)
+Player -> (open inventory)
+(open inventory) -right-> (equip item)
+(open inventory) -up-> (select item)
+(open inventory) -up-> (move item)
+(open inventory) -> (change weapon)
+(pick up items) -> (open inventory)
+(open inventory) -> (use item)
+Player -> (start dungeon)
+(start dungeon) -> (move in dungeon)
+(start dungeon) -> (open doors)
+(open doors) -> (leave dungeon)
+@enduml
+'' ----------------------------------------------- 
