@@ -56,3 +56,67 @@ Player ----> (User Interface Cases)
 
 @enduml
 '' ----------------------------------------------- 
+
+
+'' ----------------------------------------------- 
+'' Lance Wells
+'' -----------------------------------------------
+@startuml
+
+:Player:
+:Hostile NPC:
+:Friendly NPC:
+
+'default
+left to right direction
+
+rectangle Combat {
+	:Player: -left-> (Attack)
+	:Player: -left-> (Change Current Weapon)
+	:Player: -left-> (Reload Weapon)
+	:Player: -left-> (Kill an Enemy)
+	:Player: <-left- (Take Damage)
+	:Player: <-left- (Die)
+	:Hostile NPC: -right-> (Take Damage)
+	:Hostile NPC: -right-> (Die)
+	:Hostile NPC: <-right-> (Attack)
+}
+
+rectangle "NPC Interactions"{
+	:Player: -right-> (Complete a task/quest)
+	:Player: -right-> (Sell Items)
+	:Player: -right-> (Buy Items)
+	:Player: -right-> (Dialog)
+	:Friendly NPC: <-left- (Complete a task/quest)
+	:Friendly NPC: <-left- (Sell Items)
+	:Friendly NPC: <-left-> (Buy Items)
+	:Friendly NPC: <-left-> (Dialog)
+}
+
+rectangle PlayerTasks{
+	:Player: -up-> (Pick Up Items)
+	:Player: -up-> (Move through an Area)
+	:Player: -up-> (Level Up)	
+	:Player: -up-> (Use an Item)
+	:Player: -up-> (Increase Stats)
+	:Player: -up-> (Equip an Item)
+	:Player: -up-> (Open Doors)	
+}
+
+rectangle GUI {
+	:Player: -down-> (Select an Item from Inventory)
+	:Player: -down-> (Move an Item in the Inventory)
+	:Player: -down-> (Open and Close the Inventory)
+	:Player: -down-> (Look at Stats)
+	:Player: -down-> (Look at Map)
+	:Player: -down-> (Save the Game)
+	:Player: -down-> (Load the Game)
+	:Player: -down-> (Close the Game)
+	:Player: -down-> (Mode Selection)
+	:Player: -down-> (Enter the Game)
+	:Player: -down-> (Start Dungeon)
+	:Player: -down-> (Leave a Dungeon)	
+}
+
+@enduml
+'' ----------------------------------------------- 
