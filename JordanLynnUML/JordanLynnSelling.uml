@@ -1,0 +1,13 @@
+@startuml
+
+:Player:
+:Second Party:
+
+Player->(Trading Menu)
+Player->(Approach Second Party)
+Player->(Confirm Sale)
+
+:Second Party:-->(Confirm Sale) :If player
+:Second Party:->(Trading Menu)
+
+@enduml
