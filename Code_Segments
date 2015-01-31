@@ -175,3 +175,73 @@ Enemy --> (Combat Cases)
 
 @enduml
 '' -----------------------------------------------
+
+
+'' ----------------------------------------------- 
+'' Ronald Rodriguez
+'' -----------------------------------------------
+@startuml
+:Player: as Player
+:Enemy: as Enemy
+:NPC: as NPC
+
+Player-->(Start)
+
+(Start)-->(New Game)
+(Start)-->(Load Game)
+
+(New Game)-->(Game Mechanics)
+
+(Load Game)-->(Choose Save File to Load)
+
+(Choose Save File to Load)--->(Game Mechanics)
+
+(Game Mechanics)--->(Combat)
+(Game Mechanics)--->(Navigation)
+(Game Mechanics)--->(Open/Close Menu)
+(Game Mechanics)--->(Level Up)
+(Game Mechanics)--->(Buying/Selling)
+
+
+(Combat)-->(Reload Weapon)
+(Combat)-->(Attack)
+(Combat)-->(Kill an Enemy)
+(Combat)-->(Take Damage)
+(Combat)-->(Use Item)
+
+(Navigation)--->(Enter a Dungeon)
+(Navigation)--->(Leave a Dungeon)
+
+(Open/Close Menu)-->(In-Game Menu)
+
+(Level Up)---->(Increase Stats)
+
+(Buying/Selling)-->(Sell Items)
+(Buying/Selling)-->(Buy Items)
+
+(In-Game Menu)-->(Stats Section of Menu)
+(In-Game Menu)-->(Inventory Section of Menu)
+(In-Game Menu)-->(Save/Exit Section of Menu)
+
+(Save/Exit Section of Menu)-->(Save Game)
+(Save/Exit Section of Menu)-->(Exit Game)
+
+
+(Stats Section of Menu)-->(Look at Stats)
+(Stats Section of Menu)-->(Increase Stats)
+
+(Inventory Section of Menu)-->(Equip an Item)
+(Inventory Section of Menu)-->(Move Item in Inventory)
+(Inventory Section of Menu)-->(Select Item)
+
+(Enemy)-->(Attack)
+(Enemy)-->(Reload Weapon)
+(Enemy)-->(Take Damage)
+
+(Kill an Enemy)-->(Enemy)
+
+(NPC)----->(Sell Items)
+(NPC)----->(Buy Items)
+
+@enduml
+'' ----------------------------------------------- 
