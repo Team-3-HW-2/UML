@@ -10,50 +10,66 @@
 @startuml
 'Zachary Yama
 
-:Player: as Player
-:NPC: as NPC
-:Enemy: as Enemy
+left to right direction
 
-Player --> (Social Interaction Cases)
-NPC --> (Social Interaction Cases)
+:NPC: as c #Blue
+:Player: as p
 
-Player --> (Combat Cases)
-Enemy --> (Combat Cases)
+'right box
+rectangle PlayerActions {
+	p ----> (Level Up)
+	p ----> (Increase Stats)
+	p ----> (Equip Item)
+	p ----> (Use Item)
+	p ----> (Pick Up Item)
+	p ----> (Move Through Area)
+	p ----> (Open Doors)
+}
 
-Player ----> (User Interface Cases)
+'left box
+rectangle GUI {
+	p ----> (Select Item from Inventory)
+	p ----> (Move Item in Inventory)
+	p ----> (Open/Close Inventory)
+	p ----> (Look at Stats)
+	p ----> (Look at Map)
+	p ----> (Save the Game)
+	p ----> (Load the Game)
+	p ----> (Close the Game)
+	p ----> (Mode Selection)
+	p ----> (Enter the Game)
+	p ----> (Start Dungeon)
+	p ----> (Leave Dungeon)	
+}
 
-(User Interface Cases) -> (In Game UI)
-(User Interface Cases) --> (Menu UI)
+'bottom box
+rectangle Combat {
+	p ----> (Die)
+	p ----> (Take Damage)
+	p ----> (Change Weapon)
+	p ----> (Reload Weapon)
+	p ----> (Attack)
+	p ----> (Kill an Enemy)
 
-(Menu UI) --> (Mode Selection)
-(Menu UI) --> (Save the Game)
-(Menu UI) --> (Enter the Game)
-(Menu UI) --> (Start Dungeon)
-(Menu UI) --> (Leave Dungeon)
-(Menu UI) --> (Close the Game)
-(In Game UI) ----> (Level Up)
-(In Game UI) ----> (Increase Stats)
-(In Game UI) ----> (Equip an Item)
-(In Game UI) ----> (Change Current Weapon)
-(In Game UI) ----> (Select an Item From Inventory)
-(In Game UI) ----> (Move an Item in the Inventory)
-(In Game UI) ----> (Open/Close Inventory)
-(In Game UI) ----> (Look at Stats)
-(In Game UI) ----> (Look at Map)
+	c -left-> (Attack)
+	c -left-> (Take Damage)
+	c -left-> (Die)
+}
 
-(Social Interaction Cases) --> (Complete Task/Quest)
-(Social Interaction Cases) --> (Sell Items)
-(Social Interaction Cases) --> (Buy Items)
-(Social Interaction Cases) --> (Dialog)
 
-(Combat Cases) --> (Attack an Entity)
-(Combat Cases) --> (Kill an Enemy)
-(Combat Cases) --> (Take Damage)
-(Combat Cases) --> (Die)
-(Combat Cases) --> (Reload Weapon)
-(Combat Cases) --> (Use an Item)
-(Combat Cases) --> (Pick Up Item)
 
+'top box
+rectangle Social {
+	p ----> (Dialog)
+	p ----> (Complete Quest)
+	p ----> (Buy Items)
+	p ----> (Sell Items)
+	
+	c -left-> (Dialog)	
+	c -left-> (Complete Quest)
+	c -left-> (Buy Items)
+	c -left-> (Sell Items)
+}
 @enduml
 '' ----------------------------------------------- 
 
